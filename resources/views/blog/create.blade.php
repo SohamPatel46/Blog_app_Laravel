@@ -1,6 +1,6 @@
 @extends('blog.layout')
 
 @section('content')
-    <h1>soham</h1>
+    <h1>Create blog here</h1>
     
 @endsection

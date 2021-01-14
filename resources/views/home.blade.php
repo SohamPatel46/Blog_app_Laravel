@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <h1 style="text-align:center;">Welcome to my Blog world !!</h1>
+                    <!--{{ __('You are logged Out!') }} -->
                 </div>
             </div>
         </div>
