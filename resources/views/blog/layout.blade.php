@@ -11,6 +11,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        
+        selector: '#mytextarea'
+      });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,10 +31,11 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
             
-                <a href="/blog/create"><button type="button" class="btn btn-warning">New Blog +</button>
+                <a href="{{route('blog.create')}}"><button type="button" class="btn btn-warning">New Blog +</button>
                    </a>             
 
-                <h2 style="margin-left:40%;margin-top:10px;"> BlogIt </h2>
+                <a href="{{route('blog.index')}}" style="margin-left:40%;margin-top:10px;text-decoration:none;color:black;">
+                <h2> BlogIt </h2></a>
     
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
