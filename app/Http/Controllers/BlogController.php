@@ -36,9 +36,16 @@ class BlogController extends Controller
         return redirect()->back()->with('message','Blog submitted successfully !! Cheers ');              
     }
 
-    public function delete(){
-
-        return view('blog.create');
+    public function delete(blog $id){
+        //dd($id->all());
+        $id->delete();
+        return redirect(route('blog.index'))->with('message',"Blog Deleted ");
     }
-    
+
+    public function comment(blog $id){        
+        return view('blog.comment')->with(['data'=>$id]);
+    }
+    public function show(blog $id){        
+        return view('blog.show')->with(['data'=>$id]);
+    }
 }
