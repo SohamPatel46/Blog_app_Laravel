@@ -14,4 +14,9 @@ class blog extends Model
     {
         return $this->belongsTo(User::class,'user_id','id');
     }
+    public function blogComment()
+    {
+        return $this->belongsToMany('App\Models\User','comments','blog_id','user_id')->withPivot(['comment','id']);
+    }   
+
 }

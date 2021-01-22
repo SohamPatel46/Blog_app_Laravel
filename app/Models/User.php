@@ -46,4 +46,11 @@ class User extends Authenticatable
         return $this->hasMany(blog::class);        
     }
 
+    public function userComment()
+    {
+        return $this->belongsToMany('App\Models\blog','comments','user_id','blog_id');
+        //many-many
+       
+    }
+
 }

@@ -24,9 +24,7 @@ Route::post('/blog/store', [BlogController::class,'store'])->name('blog.store');
 Route::delete('/blog/{id}/delete', [BlogController::class,'delete'])->name('blog.delete');
 Route::get('/blog/{id}/comment', [BlogController::class,'comment'])->name('blog.comment');
 Route::get('/blog/{id}/show', [BlogController::class,'show'])->name('blog.show');
-
-
-
+Route::post('/blog/{id}/commentStore', [BlogController::class,'commentStore'])->name('blog.commentStore');
 
 Auth::routes();
 

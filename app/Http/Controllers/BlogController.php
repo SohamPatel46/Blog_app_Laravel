@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Requests\BlogCreateRequest;
 use App\Models\blog;
 use App\Models\User;
+use App\Models\Comment;
 
 
 use Illuminate\Http\Request;
@@ -42,10 +43,25 @@ class BlogController extends Controller
         return redirect(route('blog.index'))->with('message',"Blog Deleted ");
     }
 
-    public function comment(blog $id){        
+    public function comment(blog $id){    
         return view('blog.comment')->with(['data'=>$id]);
     }
     public function show(blog $id){        
         return view('blog.show')->with(['data'=>$id]);
     }
+    public function commentStore(blog $id,Request $request){
+        //dd($id);      
+        if(!$request->comment){
+            return redirect()->back()->with('error',"Comment should not be empty ");
+        }
+
+        Comment::create([
+            'comment'=>$request->comment,
+            'user_id'=>auth()->user()->id,
+            'blog_id'=>$id->id,
+        ]);
+
+        return redirect()->back()->with('message',"Commented ");
+    }
+
 }
