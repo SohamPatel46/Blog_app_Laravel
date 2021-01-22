@@ -12,10 +12,16 @@
 
         <div class="form-group">
             <h2> Content </h2>
-            <h3>{!!$data->blog_content!!} </h3>
-            <a href="#" class="card-link">Edit</a>
-              
+            <h3>{!!$data->blog_content!!} </h3>              
         </div>  
+
+        <div class="form-group">
+            <h2> Comments </h2>
+            @foreach($data->blogComment as $comment)
+
+            <p>{{$comment->pivot->comment}} -----> By {{$comment->name}} </p>
+            @endforeach
+        </div>
     </form>
 </div>
 

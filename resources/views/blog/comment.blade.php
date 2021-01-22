@@ -19,12 +19,12 @@
             <h2> Comments </h2>
             @foreach($data->blogComment as $comment)
 
-            <h4>{{$comment->pivot->comment}} commented by {{$comment->name}} </h4>
+            <p>{{$comment->pivot->comment}} -----> By {{$comment->name}} </p>
             @endforeach
         </div>               
 
         <input type="text" class="form-control" name="comment" placeholder="Leave a comment">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="margin-top:10px;margin-left:92%;">Submit</button>
         <x-alert/>
         
     </form>
